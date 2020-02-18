@@ -1,4 +1,4 @@
-const toast = require('./toast');
+const toast = require('toast-api-wrapper');
 const admin = require('firebase-admin');
 const functions = require('firebase-functions');
 
