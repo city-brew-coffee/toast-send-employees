@@ -6,7 +6,7 @@ admin.initializeApp(functions.config().firebase);
 
 const db = admin.firestore()
 
-exports.createImportFile = async (pubSubEvent, context) => {
+exports.sendEmployees = async (pubSubEvent, context) => {
     const token = await getAuthToken();
 
     const emps = await toast.getEmployees(token);
