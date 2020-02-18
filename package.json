@@ -1,0 +1,17 @@
+{
+  "name": "toast-send-employees",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request-promise-native": "^1.0.8",
+    "firebase-admin": "^8.9.2",
+    "firebase-functions": "^3.3.0",
+    "toast-api-wrapper": "^1.0.0"
+  }
+}
