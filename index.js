@@ -9,9 +9,20 @@ const db = admin.firestore()
 exports.sendEmployees = async (pubSubEvent, context) => {
     const token = await getAuthToken();
 
-    const emps = await toast.getEmployees(token);
+    const emps = await toast.getAllEmployees(accessToken=token, managementGroupGuid=process.env.toast_restaurant_group_guid, restaurantGuid=process.env.toast_restaurant_guid);
+
+    const newEmp = {
+        'firstName': 'Tester',
+        'lastName': 'McTesterson',
+        'email': 'marcusqa@email.ghostinspector.com',
+        'passcode': '5832',
+        'externalEmployeeId': '44532'
+    };
+
+    const response = await toast.addEmployee(accessToken=token, restaurantGuid=process.env.toast_restaurant_guid, employee=newEmp);
 
     console.log(emps);
+    console.log(response);
 
     return emps;
 }
@@ -22,6 +33,8 @@ async function getAuthToken() {
 
     if (data) {
         if (Date.now() > (data.expires_at * 1000)) {
+            
+
             // current auth code expired
             const response = await requestNewToken();
             return response.access_token;
